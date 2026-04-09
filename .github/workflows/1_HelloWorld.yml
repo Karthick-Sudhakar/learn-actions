@@ -1,0 +1,26 @@
+# Workflow name and by default it takes to the workflow file path if not given.
+name: Hello World
+on: 
+    push:
+      branches: main
+    pull_request:
+      branches: main
+    workflow_dispatch:
+
+env:
+  message: "Hello World !!!"
+
+jobs:
+  
+  my-first-job:  # Job identifier #
+  runs-on: ubuntu-latest
+  steps:
+    - name: Print Message
+      id: STEP1
+      run: | 
+        echo "${{ env.message }}"         
+        echo $SHELL
+
+        
+
+
