@@ -1,0 +1,27 @@
+name: Parallel Jobs
+on: 
+    workflow_dispatch:
+
+jobs:
+  
+  my-first-job:  # Job identifier #
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Message
+        id: STEP1
+        run: | 
+          echo "${{ env.message }}"         
+          echo $SHELL
+
+  my-second-job:  # Job identifier #
+    needs: my-first-job
+    runs-on: windows-latest
+    steps:
+
+      - name: Print Windows OS Info
+        id: STEP1
+        run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+      
+      - name: Print hostname
+        id: STEP2
+        run: hostname
