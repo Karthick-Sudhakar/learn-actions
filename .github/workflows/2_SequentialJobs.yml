@@ -1,5 +1,5 @@
 # Workflow name and by default it takes to the workflow file path if not given.
-name: Hello World
+name: Sequential Jobs
 on: 
     workflow_dispatch:
 
@@ -17,6 +17,17 @@ jobs:
           echo "${{ env.message }}"         
           echo $SHELL
 
+  my-second-job:  # Job identifier #
+    runs-on: windows-latest
+    steps:
+
+      - name: Print Windows OS Info
+        id: STEP1
+        run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+      
+      - name: Print hostname
+        id: STEP1
+        run: hostname
         
 
 
