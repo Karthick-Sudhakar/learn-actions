@@ -13,13 +13,13 @@ env:
 jobs:
   
   my-first-job:  # Job identifier #
-  runs-on: ubuntu-latest
-  steps:
-    - name: Print Message
-      id: STEP1
-      run: | 
-        echo "${{ env.message }}"         
-        echo $SHELL
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Message
+        id: STEP1
+        run: | 
+          echo "${{ env.message }}"         
+          echo $SHELL
 
         
 
