@@ -26,7 +26,7 @@ jobs:
         run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
       
       - name: Print hostname
-        id: STEP1
+        id: STEP2
         run: hostname
         
 
